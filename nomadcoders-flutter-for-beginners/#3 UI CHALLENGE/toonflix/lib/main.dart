@@ -92,7 +92,6 @@ class MyApp extends StatelessWidget {
                       height: 100,
                     ),
                     Row(
-                      // row - main가로, cross세로 // column - main세로, cross가로
                       crossAxisAlignment: CrossAxisAlignment.end,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -106,8 +105,7 @@ class MyApp extends StatelessWidget {
                         Text(
                           'View all',
                           style: TextStyle(
-                            color: Colors.white.withOpacity(
-                                0.8), // withOpacity() : 메소드에 값이 전달되는 방식이기 때문에 const 사용x
+                            color: Colors.white.withOpacity(0.8),
                             fontSize: 18,
                           ),
                         ),
@@ -117,13 +115,16 @@ class MyApp extends StatelessWidget {
                       height: 20,
                     ),
                     Container(
+                      // clipBehavior : 어떤 아이템이 overflow 됐을 때, 그걸 포함한 container가 어떻게 동작하게 할건지 알려줌.
+                      clipBehavior: Clip.hardEdge, // 나머지 부분을 숨김
                       decoration: BoxDecoration(
                         color: const Color(0xFF1F2123),
-                        borderRadius: BorderRadius.circular(25), // const 사용x
+                        borderRadius: BorderRadius.circular(25),
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(30),
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -161,6 +162,18 @@ class MyApp extends StatelessWidget {
                                   ],
                                 )
                               ],
+                            ),
+                            // Transform
+                            Transform.scale(
+                              scale: 2.2,
+                              child: Transform.translate(
+                                offset: const Offset(-5, 12),
+                                child: const Icon(
+                                  Icons.euro_rounded,
+                                  color: Colors.white,
+                                  size: 88,
+                                ),
+                              ),
                             ),
                           ],
                         ),
