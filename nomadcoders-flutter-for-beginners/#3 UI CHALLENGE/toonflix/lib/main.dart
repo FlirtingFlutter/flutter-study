@@ -15,7 +15,6 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
           backgroundColor: const Color(0xFF181818),
           body: SingleChildScrollView(
-            // 스크롤 가능
             child: Padding(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 20,
@@ -116,7 +115,6 @@ class MyApp extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                      // 커스텀 카드 위젯
                       const CurrencyCard(
                         name: 'Euro',
                         code: 'EUR',
@@ -124,19 +122,25 @@ class MyApp extends StatelessWidget {
                         icon: Icons.euro_outlined,
                         isInverted: false,
                       ),
-                      const CurrencyCard(
-                        name: 'Dollar',
-                        code: 'USD',
-                        amount: '55 622',
-                        icon: Icons.paid_outlined,
-                        isInverted: true,
+                      Transform.translate(
+                        offset: const Offset(0, -20),
+                        child: const CurrencyCard(
+                          name: 'Dollar',
+                          code: 'USD',
+                          amount: '55 622',
+                          icon: Icons.paid_outlined,
+                          isInverted: true,
+                        ),
                       ),
-                      const CurrencyCard(
-                        name: 'Rupee',
-                        code: 'INR',
-                        amount: '28 981',
-                        icon: Icons.currency_rupee_outlined,
-                        isInverted: false,
+                      Transform.translate(
+                        offset: const Offset(0, -20),
+                        child: const CurrencyCard(
+                          name: 'Rupee',
+                          code: 'INR',
+                          amount: '28 981',
+                          icon: Icons.currency_rupee_outlined,
+                          isInverted: false,
+                        ),
                       ),
                     ])),
           )),
